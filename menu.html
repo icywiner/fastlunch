@@ -1,79 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fast Lunch - Menú Semanal</title>
+  <title>FastLunch - Mi Menú Semanal</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class=" bg-gradient-to-tr from-orange-600 to-orange-950 min-h-screen flex flex-col">
-  <!-- NAV -->
-  <nav class="flex justify-center gap-4 p-6">
-    <a href="./login.html" class="px-6 py-3 rounded text-white bg-gray-500">Cerrar Sesion</a>
-    <button class="px-6 py-3 rounded text-white bg-gray-500">Crear Ticket</button>
-    <button class="px-6 py-3 rounded text-white bg-gray-500">Actualizar Menu</button>
+<body class="bg-gradient-to-tr from-orange-600 to-orange-950 min-h-screen flex flex-col">
+  
+  <!-- HEADER -->
+  <header class="bg-white/10 backdrop-blur-md border-b border-white/20 shadow-lg">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-400 to-orange-700 flex items-center justify-center shadow-lg">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <div>
+            <h1 class="text-2xl font-bold text-white">FastLunch</h1>
+            <p class="text-white/70 text-sm">Wolfsohn</p>
+          </div>
+        </div>
+        
+        <nav class="flex gap-3">
+          <button id="createTicketBtn" class="px-4 py-2 rounded-lg text-white bg-white/10 hover:bg-white/20 border border-white/30 transition-all font-medium">
+            <span class="hidden sm:inline">Crear Ticket</span>
+            <span class="sm:hidden">🎫</span>
+          </button>
+          <button id="updateMenuBtn" class="px-4 py-2 rounded-lg text-white bg-orange-500 hover:bg-orange-600 transition-all font-medium">
+            <span class="hidden sm:inline">Actualizar Menú</span>
+            <span class="sm:hidden">✏️</span>
+          </button>
+          <a href="./login.html" id="logoutBtn" class="px-4 py-2 rounded-lg text-white bg-red-500/80 hover:bg-red-600 transition-all font-medium">
+            <span class="hidden sm:inline">Cerrar Sesión</span>
+            <span class="sm:hidden">🚪</span>
+          </a>
   </nav>
+      </div>
+    </div>
+  </header>
 
   <!-- MAIN -->
-  <main class="flex-grow flex items-center justify-center p-10">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+  <main class="flex-grow container mx-auto p-6 md:p-10">
+    <div class="mb-8">
+      <h2 class="text-4xl font-bold text-white mb-2">Mi Menú Semanal</h2>
+      <p class="text-white/80">Tu selección de comidas para esta semana</p>
+    </div>
+
+    <div id="weeklyMenuContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       
       <!-- Lunes -->
-      <div class="flex gap-x-2">
-        <div class="w-56 h-36 rounded bg-gray-500"></div>
-        <div class="flex flex-col gap-y-2">
-          <h3 class="text-2xl font-semibold text-white">Lunes</h3>
-          <p class="text-white">Milanesas</p>
-          <p class="text-white">12:00 - 12:55</p>
-          <p class="text-white">Mostrador</p>
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+        <div class="flex flex-col gap-4">
+          <div class="w-full h-40 rounded-xl bg-gradient-to-br from-orange-400/30 to-orange-700/30 flex items-center justify-center overflow-hidden">
+            <svg class="w-20 h-20 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-2">Lunes</h3>
+            <p class="text-white/90 text-lg font-medium" id="lunesComida">Milanesas</p>
+            <div class="flex items-center gap-2 mt-3 text-white/70 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>12:00 - 12:55</span>
+            </div>
+            <div class="flex items-center gap-2 mt-2 text-white/70 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>Mostrador</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Martes -->
-      <div class="flex gap-x-2">
-        <div class="w-56 h-36 rounded bg-gray-500"></div>
-        <div class="flex flex-col gap-y-2">
-          <h3 class="text-2xl font-semibold text-white">Martes</h3>
-          <p class="text-white">Pizza</p>
-          <p class="text-white">12:00 - 12:55</p>
-          <p class="text-white">Mostrador</p>
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+        <div class="flex flex-col gap-4">
+          <div class="w-full h-40 rounded-xl bg-gradient-to-br from-orange-400/30 to-orange-700/30 flex items-center justify-center overflow-hidden">
+            <svg class="w-20 h-20 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-2">Martes</h3>
+            <p class="text-white/90 text-lg font-medium" id="martesComida">Pizza</p>
+            <div class="flex items-center gap-2 mt-3 text-white/70 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>12:00 - 12:55</span>
+            </div>
+            <div class="flex items-center gap-2 mt-2 text-white/70 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>Mostrador</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Miércoles -->
-      <div class="flex gap-x-2">
-        <div class="w-56 h-36 rounded bg-gray-500"></div>
-        <div class="flex flex-col gap-y-2">
-          <h3 class="text-2xl font-semibold text-white">Miércoles</h3>
-          <p class="text-white">Tarta</p>
-          <p class="text-white">12:00 - 12:55</p>
-          <p class="text-white">Mostrador</p>
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+        <div class="flex flex-col gap-4">
+          <div class="w-full h-40 rounded-xl bg-gradient-to-br from-orange-400/30 to-orange-700/30 flex items-center justify-center overflow-hidden">
+            <svg class="w-20 h-20 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-2">Miércoles</h3>
+            <p class="text-white/90 text-lg font-medium" id="miercolesComida">Tarta</p>
+            <div class="flex items-center gap-2 mt-3 text-white/70 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>12:00 - 12:55</span>
+            </div>
+            <div class="flex items-center gap-2 mt-2 text-white/70 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>Mostrador</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Jueves -->
-      <div class="flex gap-x-2">
-        <div class="w-56 h-36 rounded bg-gray-500"></div>
-        <div class="flex flex-col gap-y-2">
-          <h3 class="text-2xl font-semibold text-white">Jueves</h3>
-          <p class="text-white">Lajmashin</p>
-          <p class="text-white">12:00 - 12:55</p>
-          <p class="text-white">Mostrador</p>
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+        <div class="flex flex-col gap-4">
+          <div class="w-full h-40 rounded-xl bg-gradient-to-br from-orange-400/30 to-orange-700/30 flex items-center justify-center overflow-hidden">
+            <svg class="w-20 h-20 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-2">Jueves</h3>
+            <p class="text-white/90 text-lg font-medium" id="juevesComida">Lajmashin</p>
+            <div class="flex items-center gap-2 mt-3 text-white/70 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>12:00 - 12:55</span>
+            </div>
+            <div class="flex items-center gap-2 mt-2 text-white/70 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>Mostrador</span>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Viernes -->
-      <div class="flex gap-x-2">
-        <div class="w-56 h-36 rounded bg-gray-500"></div>
-        <div class="flex flex-col gap-y-2">
-          <h3 class="text-2xl font-semibold text-white">Viernes</h3>
-          <p class="text-white">Ensalada</p>
-          <p class="text-white">12:00 - 12:55</p>
-          <p class="text-white">Mostrador</p>
+      <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+        <div class="flex flex-col gap-4">
+          <div class="w-full h-40 rounded-xl bg-gradient-to-br from-orange-400/30 to-orange-700/30 flex items-center justify-center overflow-hidden">
+            <svg class="w-20 h-20 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-2xl font-bold text-white mb-2">Viernes</h3>
+            <p class="text-white/90 text-lg font-medium" id="viernesComida">Ensalada</p>
+            <div class="flex items-center gap-2 mt-3 text-white/70 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>12:00 - 12:55</span>
+            </div>
+            <div class="flex items-center gap-2 mt-2 text-white/70 text-sm">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>Mostrador</span>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
   </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white/5 backdrop-blur-md border-t border-white/20 py-4 mt-8">
+    <div class="container mx-auto px-6 text-center">
+      <p class="text-white/60 text-sm">© 2025 FastLunch - Wolfsohn. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 </body>
 </html>

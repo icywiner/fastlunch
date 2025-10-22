@@ -1,26 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FastLucnh - Login</title>
+    <title>FastLunch - Nueva Contraseña</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="flex justify-center items-center h-screen fondo ">
-    <div class=" bg-gray-600/90 flex flex-col justify-center items-center w-[500px] h-[650px] p-8">
-      <div class="flex flex-col items-center  space-y-5">
-        <h3 class=" text-2xl text-white text-center space-y-2">Ingrese la nueva contraseña</h3>
+  <main class="flex justify-center items-center min-h-screen bg-gradient-to-tr from-orange-600 to-orange-950">
+    <div class="bg-white/10 backdrop-blur-md flex flex-col justify-center items-center w-full max-w-md mx-4 rounded-2xl shadow-2xl p-8 border border-white/20">
+      
+      <!-- Header -->
+      <div class="flex flex-col items-center space-y-4 mb-8">
+        <div class="w-20 h-20 rounded-full bg-gradient-to-br from-orange-400 to-orange-700 flex items-center justify-center shadow-lg">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path>
+          </svg>
+        </div>
+        <h3 class="text-3xl text-white text-center font-bold">Nueva Contraseña</h3>
+        <p class="text-white/80 text-center">Ingrese su nueva contraseña para restablecer el acceso a su cuenta</p>
       </div>
-      <div class=" flex flex-col  items-center space-y-5 mt-10">
-        <form class=" flex flex-col space-y-2 w-72" action="">
-          <label class="text-white" for="text">Contraseña *</label>
-          <input class=" rounded py-2 px-6 "  type="password">
-          <label class=" text-white" for="text">Confirmar Contraseña *</label>
-          <input class=" rounded py-2 px-6" type="password">
+
+      <!-- Formulario -->
+      <div class="flex flex-col items-center space-y-6 w-full">
+        <form id="newPasswordForm" class="flex flex-col space-y-4 w-full" onsubmit="return false;">
+          <div class="flex flex-col space-y-2">
+            <label class="text-white font-medium" for="newPassword">Nueva contraseña *</label>
+            <input 
+              id="newPassword" 
+              class="rounded-lg py-3 px-4 bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all" 
+              type="password" 
+              placeholder="••••••••"
+              minlength="6"
+              required>
+            <p class="text-white/60 text-sm">Mínimo 6 caracteres</p>
+          </div>
+          
+          <div class="flex flex-col space-y-2">
+            <label class="text-white font-medium" for="confirmPassword">Confirmar contraseña *</label>
+            <input 
+              id="confirmPassword" 
+              class="rounded-lg py-3 px-4 bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all" 
+              type="password" 
+              placeholder="••••••••"
+              minlength="6"
+              required>
+          </div>
         </form>
-        <button class=" rounded bg-blue-500 text-white py-2 w-fit px-6">Enviar</button>
+
+        <button 
+          id="resetPasswordBtn" 
+          class="rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 w-full transition-all transform hover:scale-105 shadow-lg">
+          Restablecer Contraseña
+        </button>
+
+        <a href="./login.html" class="text-white/60 hover:text-white text-sm underline mt-4">
+          Volver al inicio de sesión
+        </a>
       </div>
     </div>
   </main>  

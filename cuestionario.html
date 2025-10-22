@@ -1,68 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fast Lunch - Cuestionario</title>
+    <title>FastLunch - Menú Semanal</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="flex justify-center items-center h-screen fondo ">
-        <form  action="#" class="flex flex-col bg-gray-600/90 w-[500px] h-[650px] p-8 justify-center items-center">
-            <h2 class=" text-5xl text-white text-center p-4">FastLunch</h2>
-            <h3 class=" text-3xl text-white text-center p-4">Menu Semanal</h3>
-            <div class=" mb-5">
-                <div class="flex flex-col items-start w-72 p-2">
-                    <label class=" text-white text-left" for="text">Lunes *</label>
-                    <select class="rounded py-2 px-6 w-full" name="" id="">
-                        <option value="#"></option>
-                        <option value="#">Hamburgesa</option>
-                        <option value="#">Pizza</option>
+    <main class="flex justify-center items-center min-h-screen bg-gradient-to-tr from-orange-600 to-orange-950 py-8">
+        <div class="bg-white/10 backdrop-blur-md w-full max-w-lg mx-4 rounded-2xl shadow-2xl p-8 border border-white/20">
+            
+            <!-- Header -->
+            <div class="flex flex-col items-center space-y-2 mb-8">
+                <div class="w-20 h-20 rounded-full bg-gradient-to-br from-orange-400 to-orange-700 flex items-center justify-center shadow-lg">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                    </svg>
+                </div>
+                <h2 class="text-4xl text-white text-center font-bold">FastLunch</h2>
+                <h3 class="text-2xl text-white/90 text-center">Menú Semanal</h3>
+                <p class="text-white/70 text-center text-sm">Seleccione su comida para cada día de la semana</p>
+            </div>
 
+            <!-- Formulario -->
+            <form id="weeklyMenuForm" class="flex flex-col space-y-4 mb-6" onsubmit="return false;">
+                
+                <!-- Lunes -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-white font-medium" for="menuLunes">Lunes *</label>
+                    <select id="menuLunes" class="rounded-lg py-3 px-4 bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all cursor-pointer" required>
+                        <option value="">-- Seleccione una opción --</option>
+                        <option value="hamburguesa">Hamburguesa</option>
+                        <option value="pizza">Pizza</option>
                     </select>
                 </div>
-            <div class="flex flex-col items-start w-72 p-2">
-                <label class=" text-white text-left" for="text">Martes *</label>
-                <select class="rounded py-2 px-6 w-full" name="" id="">
-                    <option value="#"></option>
-                    <option value="#">Fideos</option>
-                    <option value="#">Tarta</option>
 
+                <!-- Martes -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-white font-medium" for="menuMartes">Martes *</label>
+                    <select id="menuMartes" class="rounded-lg py-3 px-4 bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all cursor-pointer" required>
+                        <option value="">-- Seleccione una opción --</option>
+                        <option value="fideos">Fideos</option>
+                        <option value="tarta">Tarta</option>
                 </select>
             </div>
-            <div class="flex flex-col items-start w-72 p-2">
-                <label class=" text-white text-left" for="text">Miercoles *</label>
-                <select class="rounded py-2 px-6 w-full" name="" id="">
-                    <option value="#"></option>
-                    <option value="#">Sandwich Milanesa</option>
-                    <option value="#"> Tortilla de papas</option>
 
+                <!-- Miércoles -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-white font-medium" for="menuMiercoles">Miércoles *</label>
+                    <select id="menuMiercoles" class="rounded-lg py-3 px-4 bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all cursor-pointer" required>
+                        <option value="">-- Seleccione una opción --</option>
+                        <option value="sandwich-milanesa">Sandwich de Milanesa</option>
+                        <option value="tortilla-papas">Tortilla de Papas</option>
                 </select>
             </div>
-            <div class="flex flex-col items-start w-72 p-2">
-                <label class=" text-white text-left" for="text">Jueves *</label>
-                <select class="rounded py-2 px-6 w-full" name="" id="">
-                    <option value="#"></option>
-                    <option value="#"> Lajmashin</option>
-                    <option value="#">Sambuzak</option>
 
+                <!-- Jueves -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-white font-medium" for="menuJueves">Jueves *</label>
+                    <select id="menuJueves" class="rounded-lg py-3 px-4 bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all cursor-pointer" required>
+                        <option value="">-- Seleccione una opción --</option>
+                        <option value="lajmashin">Lajmashin</option>
+                        <option value="sambuzak">Sambuzak</option>
                 </select>
             </div>
-            <div class="flex flex-col items-start w-72 p-2">
-                <label class=" text-white text-left" for="text">Viernes *</label>
-                <select class="rounded py-2 px-6 w-full" name="" id="">
-                    <option value="#"></option>
-                    <option value="#">Knishe</option>
-                    <option value="#">Ensalada</option>
 
+                <!-- Viernes -->
+                <div class="flex flex-col space-y-2">
+                    <label class="text-white font-medium" for="menuViernes">Viernes *</label>
+                    <select id="menuViernes" class="rounded-lg py-3 px-4 bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all cursor-pointer" required>
+                        <option value="">-- Seleccione una opción --</option>
+                        <option value="knishe">Knishe</option>
+                        <option value="ensalada">Ensalada</option>
                 </select>
             </div>
+            </form>
+
+            <!-- Botones de acción -->
+            <div class="flex gap-4 mt-8">
+                <button id="submitMenuBtn" class="flex-1 rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-6 transition-all transform hover:scale-105 shadow-lg">
+                    Confirmar Menú
+                </button>
+                <button id="cancelMenuBtn" class="flex-1 rounded-lg bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 px-6 transition-all transform hover:scale-105 shadow-lg">
+                    Cancelar
+                </button>
             </div>
-            <div class=" flex space-x-2">
-                <a href="./menu.html" class="flex w-full  items-start t rounded  bg-black text-white py-1 px-6 p-2">Entregar  </a>
-                <a href="./login.html" class="flex w-full  items-end rounded bg-black text-white py-1 px-6 p-2">Cancelar</a>
             </div>
-        </form>
     </main>
 </body>
 </html>

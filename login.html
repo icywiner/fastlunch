@@ -1,29 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FastLucnh - Login</title>
+    <title>FastLunch - Iniciar Sesión</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="flex justify-center items-center h-screen fondo ">
-    <div class=" bg-gray-600/90 flex flex-col justify-center items-center w-[500px] h-[650px] p-8">
-      <div class="flex flex-col items-center  space-y-5">
-        <div class=" w-24 h-24 rounded-full bg-gradient-to-tr from-orange-600 to-orange-950"></div>
-        <h2 class=" text-5xl text-white text-center">Inciar Sesion</h2>
-        <h4 class=" text-2xl text-white text-center">Wolfsohn - FastLunch</h4>
+  <main class="flex justify-center items-center min-h-screen bg-gradient-to-tr from-orange-600 to-orange-950">
+    <div class="bg-white/10 backdrop-blur-md flex flex-col justify-center items-center w-full max-w-md mx-4 rounded-2xl shadow-2xl p-8 border border-white/20">
+      
+      <!-- Header -->
+      <div class="flex flex-col items-center space-y-5 mb-8">
+        <div class="w-24 h-24 rounded-full bg-gradient-to-br from-orange-400 to-orange-700 flex items-center justify-center shadow-lg">
+          <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+          </svg>
+        </div>
+        <h2 class="text-5xl text-white text-center font-bold">Iniciar Sesión</h2>
+        <h4 class="text-xl text-white/80 text-center">Wolfsohn - FastLunch</h4>
       </div>
-      <div class=" flex flex-col  items-center space-y-5">
-        <form class=" flex flex-col space-y-2 w-72" action="">
-          <label class="text-white" for="text">Correo *</label>
-          <input class=" rounded py-2 px-6" type="text">
-          <label class=" text-white" for="text">Contraseña *</label>
-          <input class=" rounded py-2 px-6" type="password">
-          <a class=" underline underline-offset-2 text-center text-white" href="#">¿Olvidaste tu Contraseña?</a>
+
+      <!-- Formulario -->
+      <div class="flex flex-col items-center space-y-6 w-full">
+        <form id="loginForm" class="flex flex-col space-y-4 w-full" onsubmit="return false;">
+          <div class="flex flex-col space-y-2">
+            <label class="text-white font-medium" for="loginEmail">Correo electrónico *</label>
+            <input 
+              id="loginEmail" 
+              class="rounded-lg py-3 px-4 bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all" 
+              type="email" 
+              placeholder="tu@email.com"
+              required>
+          </div>
+          
+          <div class="flex flex-col space-y-2">
+            <label class="text-white font-medium" for="loginPassword">Contraseña *</label>
+            <input 
+              id="loginPassword" 
+              class="rounded-lg py-3 px-4 bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all" 
+              type="password" 
+              placeholder="••••••••"
+              required>
+          </div>
+          
+          <a class="underline underline-offset-2 text-center text-white hover:text-orange-200 transition-colors" href="./codigo.html">
+            ¿Olvidaste tu Contraseña?
+          </a>
         </form>
-        <a href="./cuestionario.html" class=" rounded bg-blue-500 text-white py-2 w-fit px-6">Inciar Sesion</a>
+
+        <button 
+          id="loginBtn" 
+          class="rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 transition-all transform hover:scale-105 shadow-lg">
+          Iniciar Sesión
+        </button>
+
+        <div class="text-white text-center mt-4">
+          ¿No tienes cuenta? 
+          <a href="./registro.html" class="underline text-orange-300 hover:text-orange-200 font-medium">Regístrate aquí</a>
+        </div>
       </div>
     </div>
   </main>  

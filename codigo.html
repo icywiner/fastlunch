@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +8,51 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="flex justify-center items-center h-screen fondo">
-    <div class=" bg-gray-600/90 flex flex-col justify-start items-center w-[500px] h-[350px] p-8">
+  <main class="flex justify-center items-center min-h-screen bg-gradient-to-tr from-orange-600 to-orange-950">
+    <div class="bg-white/10 backdrop-blur-md flex flex-col justify-center items-center w-full max-w-md mx-4 rounded-2xl shadow-2xl p-8 border border-white/20">
       
-      <div class="flex flex-col items-center space-y-1 mt-6">
-        <h3 class="text-white text-center">Ingrese el código de verificación</h3>
-        <h3 class="text-white text-center">que enviamos al correo</h3>
+      <!-- Header -->
+      <div class="flex flex-col items-center space-y-4 mb-8">
+        <div class="w-20 h-20 rounded-full bg-gradient-to-br from-orange-400 to-orange-700 flex items-center justify-center shadow-lg">
+          <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl text-white text-center font-bold">Verificación de Correo</h3>
+        <p class="text-white/80 text-center">Ingrese el código de verificación que enviamos a su correo electrónico</p>
       </div>
 
-      <div class=" flex flex-col items-center space-y-5 mt-6">
-        <form class=" flex flex-col space-y-2 w-72" action="">
-          <label class="text-white" for="codigo">Código *</label>
-          <input class=" rounded py-2 px-6" id="codigo" type="password">
+      <!-- Formulario -->
+      <div class="flex flex-col items-center space-y-6 w-full">
+        <form id="verificationForm" class="flex flex-col space-y-4 w-full" onsubmit="return false;">
+          <div class="flex flex-col space-y-2">
+            <label class="text-white font-medium" for="verificationCode">Código de verificación *</label>
+            <input 
+              id="verificationCode" 
+              class="rounded-lg py-3 px-4 bg-white/90 focus:bg-white focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all text-center text-2xl tracking-widest" 
+              type="text" 
+              placeholder="000000"
+              maxlength="6"
+              required>
+          </div>
         </form>
-        <button class=" rounded bg-blue-500 text-white py-2 w-fit px-6">Confirmar</button>
+
+        <button 
+          id="verifyBtn" 
+          class="rounded-lg bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-8 w-full transition-all transform hover:scale-105 shadow-lg">
+          Verificar Código
+        </button>
+
+        <div class="text-white/80 text-center text-sm mt-4">
+          ¿No recibiste el código? 
+          <button id="resendCodeBtn" class="underline text-orange-300 hover:text-orange-200 font-medium">
+            Reenviar código
+          </button>
+        </div>
+
+        <a href="./login.html" class="text-white/60 hover:text-white text-sm underline">
+          Volver al inicio de sesión
+        </a>
       </div>
     </div>
   </main>  
